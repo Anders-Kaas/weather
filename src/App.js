@@ -1,25 +1,37 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import CurrentWeather from './Components/CurrentWeather';
+import Forecast from './Components/Forecast';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+
+  state = {
+    loading: true,
+    weatherinfo: {}
+  }
+
+
+  async componentDidMount() {
+    const url = "http://127.0.0.1:8000/weather-info/?city=copenhagen";
+    const response = await fetch(url);
+    const data = await response.json();
+    this.setState({loading: false, weatherinfo: data});
 }
 
-export default App;
+
+  render() {
+    console.log(this.state.weatherinfo)
+    console.log(this.state.loading)
+    return (
+      <div className='App'>
+        {this.state.loading ? <div> Loading! </div> :
+          <div className="WeatherApp">
+            <CurrentWeather celsius="18"/>
+            <Forecast/>
+          </div>
+        }
+      </div>
+    );
+  }
+}

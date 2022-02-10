@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,60 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+*{
+  margin: 0;
+}
+
+.App{
+  background-image: url('img/nightsky.jpg');
+  background-size: cover;
+  background-position: 50% 50%;
+  
+}
+
+.WeatherApp {
+  margin-left: 5vw;
+  margin-right: 5vw;
+  color: white;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.current-temperature {
+  font-size: 200px;
+  font-weight: 300;
+}
+
+.current-weather-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.top-info-box {
+  margin-bottom: 42px;
+  font-weight: 300;
+}
+
+.forecast-day-temperature {
+  font-size: 40px;
+}
+
+.forecast-night-temperature {
+  font-size: 40px;
+  color: #a9a9a9;
+}
+
+.forecast-one-day-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.forecast-container {
+  display: flex;
+  justify-content: space-between;
 }
